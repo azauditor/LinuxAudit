@@ -1,7 +1,7 @@
 # LinuxAudit
 
 
-The following commands are used to extract information out of a Linux Operating System.  While these commands should work with most variants of the LINUX it has been verified to work with the Debian distribution.  If you are running a different variant please inform contact with which variant and version so that the command line code can be verified with your particular version.
+The following commands are used to extract information out of a Linux Operating System.  **While these commands should work with most variants of the LINUX** this code has been verified to work with the Debian distribution.  If you are running a different variant please inform contact with which variant and version so that the command line code can be verified with your particular version.
 
 ## Users
 
