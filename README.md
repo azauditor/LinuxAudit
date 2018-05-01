@@ -7,7 +7,7 @@ The following commands are used to extract information out of a Linux Operating 
 This command will find all accounts including network accounts.
 
 ``` Bash
- getent passwd > accounts.txt
+ getent passwd > Accounts.txt
 ```
 
 ## Groups
