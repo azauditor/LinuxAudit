@@ -10,12 +10,24 @@ This command will find all accounts including network accounts.
  getent passwd > Accounts.txt
 ```
 
+If you are running **Red Hat Enterprise Linux** use the follwing command.
+
+``` Bash
+ cp /etc/passwd accounts.txt
+```
+
 ## Groups
 
 This is to determine if an account or group is assigned to another group.  Ex: If group A is given root access and Group B is part of Group A then those assigned to Group B has root privileges.  Same goes if Group C is assigned to Group B.
 
 ``` Bash
 getent group > Group.txt
+```
+
+If you are running **Red Hat Enterprise Linux** use the follwing command.
+
+``` Bash
+ cp /etc/group group.txt
 ```
 
 ## Root Impersonation
