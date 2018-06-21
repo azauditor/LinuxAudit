@@ -46,6 +46,12 @@ This command will show all accounts and the password settings that are being app
 sudo passwd --status --all > PasswordSetting.txt
 ```
 
+Alternative command line to run if above does not work
+
+``` Bash
+sudo passwd -S -a > PasswordSetting.txt
+```
+
 ## Valid Login Shells
 
 This command is to determine what shells are valid to login to the system.
