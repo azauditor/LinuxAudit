@@ -10,10 +10,16 @@ This command will find all accounts including network accounts.
  getent passwd > Accounts.txt
 ```
 
-If you are running **Red Hat Enterprise Linux** use the follwing command.
+If you are running **Red Hat Enterprise Linux** use the following command.
 
 ``` Bash
  cp /etc/passwd accounts.txt
+```
+
+If you are running **UNIX** use the following command.
+
+``` Bash
+ cat /etc/passwd > accounts.txt
 ```
 
 ## Groups
@@ -28,6 +34,12 @@ If you are running **Red Hat Enterprise Linux** use the following command.
 
 ``` Bash
  cp /etc/group group.txt
+```
+
+If you are running **UNIX** use the following command.
+
+``` Bash
+ cat /etc/group > group.txt
 ```
 
 ## Root Impersonation
@@ -56,6 +68,12 @@ If you are running **Oracle Enterprise Linux Server** use the following command.
 
 ``` Bash
 for u in `cat /etc/passwd | cut -d: -f1 | sort`; do passwd -S $u; done
+```
+
+If you are running **UNIX** use the following command. **Note**: You **MUST** run this command in the /etc/ folder otherwise it will fail.
+
+``` Bash
+passwd -s -a > PasswordSetting.txt
 ```
 
 ## Valid Login Shells
