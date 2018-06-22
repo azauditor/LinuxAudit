@@ -24,7 +24,7 @@ This is to determine if an account or group is assigned to another group.  Ex: I
 getent group > Group.txt
 ```
 
-If you are running **Red Hat Enterprise Linux** use the follwing command.
+If you are running **Red Hat Enterprise Linux** use the following command.
 
 ``` Bash
  cp /etc/group group.txt
@@ -50,6 +50,12 @@ Alternative command line to run if above does not work
 
 ``` Bash
 sudo passwd -S -a > PasswordSetting.txt
+```
+
+If you are running **Oracle Enterprise Linux Server** use the following command. **Note**: You **MUST** run this command as root otherwise it will fail.
+
+``` Bash
+for u in `cat /etc/passwd | cut -d: -f1 | sort`; do passwd -S $u; done
 ```
 
 ## Valid Login Shells
