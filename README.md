@@ -67,13 +67,13 @@ sudo passwd -S -a > PasswordSetting.txt
 If you are running **Oracle Enterprise Linux Server** use the following command. **Note**: You **MUST** run this command as root otherwise it will fail.
 
 ``` Bash
-for u in `cat /etc/passwd | cut -d: -f1 | sort`; do passwd -S $u; done
+for u in `cat /etc/passwd | cut -d: -f1 | sort`; do passwd -S $u >> PasswordSetting.txt; done
 ```
 
 If you are running **Red Hat Enterprise Linux** use the following command.
 
 ``` Bash
-awk -F':' '{ system("echo " $1 " && chage -l " $1 " && echo ") }' /etc/passwd > ~/audit/passwordExpiry.txt
+awk -F':' '{ system("echo " $1 " && chage -l " $1 " && echo ") }' /etc/passwd > PasswordSetting.txt
 ```
 
 If you are running **UNIX** use the following command. **Note**: You **MUST** run this command in the /etc/ folder otherwise it will fail.
