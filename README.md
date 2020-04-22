@@ -2,6 +2,16 @@
 
 The following commands are used to extract information out of a Linux Operating System.  **While these commands should work with most variants of the LINUX** this code has been verified to work with the Debian distribution.  If you are running a different variant please inform contact with which variant and version so that the command line code can be verified with your particular version.
 
+## **Linux - Version Check**
+The following queries may assist you in determining your Linux system general info.
+
+``` Bash
+ hostnamectl > sysinfo.txt
+ uname -a > sysinfo.txt
+ lsb_release -a > sysinfo.txt
+ cat /etc/*-release > sysinfo.txt
+```
+
 ## Users
 
 This command will find all accounts including network accounts.
