@@ -62,13 +62,23 @@ sudo cat /etc/sudoers > Sudo.txt
 
 ## Password Settings
 
-This command will show all accounts and the password settings that are being applied to them.
+These 2 commands will show all accounts and the password settings that are being applied to them. Run both as each command outputs different components of the password settings.
+
+Minimum and maximum password age:
 
 ``` Bash
 sudo passwd --status --all > PasswordSetting.txt
 ```
 
-Alternative command line to run if above does not work
+Password length and complexity:
+
+``` Bash
+sudo /etc/security/pwquality.conf > Pwquality.txt
+```
+
+**Alternative Commands:**
+
+Run if the above command for minimum and maximum password age does not work.
 
 ``` Bash
 sudo passwd -S -a > PasswordSetting.txt
