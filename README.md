@@ -60,6 +60,8 @@ This is to determine what groups/accounts can run commands as root.
 sudo cat /etc/sudoers > Sudo.txt
 ```
 
+Please check the contents of /etc/sudoers and send files referenced by an include directive ("#include" for a single file or "#includedir" for an entire directory). If the referenced file doesn't exist, provide evidence through executing `ls -a`
+
 ## Password Settings
 
 These 2 commands will show all accounts and the password settings that are being applied to them. Run both as each command outputs different components of the password settings.
