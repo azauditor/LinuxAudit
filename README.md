@@ -12,6 +12,18 @@ The following queries may assist you in determining your Linux system general in
  cat /etc/*-release > sysinfo.txt
 ```
 
+## **Linux - Server Configuration File**
+The following query obtains a system-wide configuration file
+``` Bash
+cp /etc/ssh/sshd_config  sshd.config.txt
+```
+## Basic Information on the System
+
+This command shows default information about all system and user accounts on the system as well as information about the user's last login to the system, and whether their password is locked or login by password disabled.
+``` Bash
+lslogins -o USER,PWD-CHANGE,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,SHELL >> LoginSetting.txt
+```
+
 ## Users
 
 This command will find all accounts including network accounts.
@@ -52,6 +64,13 @@ If you are running **UNIX** use the following command.
  cat /etc/group > group.txt
 ```
 
+## **Linux - PAM configuration file**
+Run the following query if PAM is required for authentication.
+
+``` Bash
+cp /etc/pam.d/password-auth-ac password-auth-ac.txt
+```
+
 ## Root Impersonation
 
 This is to determine what groups/accounts can run commands as root.
@@ -62,26 +81,24 @@ sudo cat /etc/sudoers > Sudo.txt
 
 Please check the contents of /etc/sudoers and send files referenced by an include directive ("#include" for a single file or "#includedir" for an entire directory). If the referenced file doesn't exist, provide evidence through executing `ls -a`
 
-## Password Settings
+## **Password Settings**
 
 These 2 commands will show all accounts and the password settings that are being applied to them. Run both as each command outputs different components of the password settings.
 
-Minimum and maximum password age:
+## Minimum and maximum password age:
 
 ``` Bash
 sudo passwd --status --all > PasswordSetting.txt
-```
-
-Password length and complexity:
-
-``` Bash
-sudo /etc/security/pwquality.conf > Pwquality.txt
 ```
 
 **Alternative Commands:**
 
 Run if the above command for minimum and maximum password age does not work.
 
+``` Bash
+sudo /etc/login.defs > PasswordSetting.txt
+```
+OR
 ``` Bash
 sudo passwd -S -a > PasswordSetting.txt
 ```
@@ -91,12 +108,23 @@ If you are running **Oracle Enterprise Linux Server** use the following command.
 ``` Bash
 for u in `cat /etc/passwd | cut -d: -f1 | sort`; do passwd -S $u >> PasswordSetting.txt; done
 ```
+OR
+``` Bash
+for u in $(cat /etc/passwd | cut -d: -f1 | sort); do passwd -S $u >> PasswordSetting.txt; done
+```
 
 If you are running **UNIX** use the following command. **Note**: You **MUST** run this command in the /etc/ folder otherwise it will fail.
 
 ``` Bash
 passwd -s -a > PasswordSetting.txt
 ```
+
+## Password length and complexity:
+
+``` Bash
+sudo /etc/security/pwquality.conf > Pwquality.txt
+```
+NOTE: If the server does not have a pwquality.conf file, please provide a screenshot of the "find -name pwquality.conf" command showing the file does not exist on the server.
 
 ## Valid Login Shells
 
