@@ -96,7 +96,7 @@ sudo passwd --status --all > PasswordSetting.txt
 Run if the above command for minimum and maximum password age does not work.
 
 ``` Bash
-sudo /etc/login.defs > PasswordSetting.txt
+sudo cat /etc/login.defs > PasswordSetting.txt
 ```
 OR
 ``` Bash
@@ -122,7 +122,7 @@ passwd -s -a > PasswordSetting.txt
 ## Password length and complexity:
 
 ``` Bash
-sudo /etc/security/pwquality.conf > Pwquality.txt
+sudo cat /etc/security/pwquality.conf > Pwquality.txt
 ```
 NOTE: If the server does not have a pwquality.conf file, please provide a screenshot of the "find -name pwquality.conf" command showing the file does not exist on the server.
 
