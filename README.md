@@ -21,7 +21,7 @@ cp /etc/ssh/sshd_config  sshd.config.txt
 
 This command shows default information about all system and user accounts on the system as well as information about the user's last login to the system, and whether their password is locked or login by password disabled.
 ``` Bash
-lslogins -o USER,PWD-CHANGE,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,SHELL >> LoginSetting.txt
+lslogins -c --time-format iso -o USER,PWD-CHANGE,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,SHELL >> LoginSetting.txt
 ```
 
 ## Users
@@ -46,7 +46,7 @@ If you are running **UNIX** use the following command.
 
 ## Groups
 
-This is to determine if an account or group is assigned to another group.  Ex: If group A is given root access and Group B is part of Group A then those assigned to Group B has root privileges.  Same goes if Group C is assigned to Group B.
+This is to determine if an account is assigned to another group.
 
 ``` Bash
 getent group > Group.txt
