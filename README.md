@@ -21,7 +21,7 @@ cp /etc/ssh/sshd_config  sshd.config.txt
 
 This command shows default information about all system and user accounts on the system as well as information about the user's last login to the system, and whether their password is locked or login by password disabled.
 ``` Bash
-lslogins -c --time-format iso -o USER,PWD-CHANGE,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,SHELL >> LoginSetting.txt
+sudo lslogins -c --time-format iso -o USER,PWD-CHANGE,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,SHELL >> LoginSetting.txt
 ```
 
 ## Users
