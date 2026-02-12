@@ -2,6 +2,33 @@
 
 The following commands are used to extract information out of a Linux Operating System.  **While these commands should work with most variants of the LINUX** this code has been verified to work with the Debian distribution.  If you are running a different variant please inform contact with which variant and version so that the command line code can be verified with your particular version.
 
+## Bulk Execution
+
+This command block can be copy-pasted into a terminal to execute all commands listed in this repository. When executing this block, please work in an empty directory that is designated to contain audit files. This folder can be zipped and sent for an easier workflow.
+
+``` Bash
+hostnamectl > sysinfo1.txt;
+uname -a > sysinfo2.txt;
+lsb_release -a > sysinfo3.txt;
+cat /etc/*-release > sysinfo4.txt;
+cp /etc/ssh/sshd_config sshd.config.txt;
+sudo lslogins -c --time-format iso -o USER,UID,GROUP,GID,PWD-CHANGE,PWD-METHOD,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,LAST-LOGIN,SHELL > LoginSetting.txt;
+getent passwd > accounts1.txt;
+cp /etc/passwd accounts2.txt;
+getent group > group1.txt;
+cp /etc/group group2.txt;
+cp /etc/pam.d/password-auth-ac password-auth-ac.txt;
+sudo cat /etc/sudoers > Sudo.txt;
+ls -al /etc/sudoers.d/ >> sudoers.d.txt;
+sudo passwd --status --all > PasswordSetting1.txt;
+sudo passwd -S -a > PasswordSetting2.txt;
+sudo cat /etc/login.defs > login.defs.txt;
+sudo cat /etc/security/pwquality.conf > Pwquality.txt;
+sudo cat /etc/shells > LoginShells.txt;
+for u in `cat /etc/passwd | cut -d: -f1 | sort`; do passwd -S $u >> PasswordSetting3.txt; done;
+```
+
+
 ## **Linux - Version Check**
 The following queries may assist you in determining your Linux system general info.
 
