@@ -4,31 +4,7 @@ The following commands are used to extract information out of a Linux Operating 
 
 ## Bulk Execution
 
-This command block can be copy-pasted into a terminal to execute all commands listed in this repository. When executing this block, please work in an empty directory that is designated to contain audit files. This folder can be zipped and sent for an easier workflow.
-
-``` Bash
-AUDITDIR="audit-$(hostname)-$(date +%d-%m-%Y)";
-mkdir "$AUDITDIR";
-cd "$AUDITDIR";
-hostnamectl > sysinfo1.txt;
-uname -a > sysinfo2.txt;
-lsb_release -a > sysinfo3.txt;
-cat /etc/*-release > sysinfo4.txt;
-cp /etc/ssh/sshd_config sshd.config.txt;
-sudo lslogins -c --time-format iso -o USER,UID,GROUP,GID,PWD-CHANGE,PWD-METHOD,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,LAST-LOGIN,SHELL > LoginSetting.txt;
-cp /etc/passwd passwd.txt;
-cp /etc/group group.txt;
-cp /etc/pam.d/password-auth-ac password-auth-ac.txt;
-sudo cat /etc/sudoers > Sudo.txt;
-ls -al /etc/sudoers.d/ > sudoers.d.txt;
-sudo passwd --status --all > PasswordSetting1.txt;
-sudo passwd -S -a > PasswordSetting2.txt;
-sudo cat /etc/login.defs > login.defs.txt;
-sudo cat /etc/security/pwquality.conf > Pwquality.txt;
-sudo cat /etc/shells > LoginShells.txt;
-cd ..;
-zip -r AZAudit.zip "$AUDITDIR"
-```
+The `AZAudit.sh` bash script can be used to execute most of the commands listed below. If you are using an older version of Linux then this script may encounter issues, and the following commands in this README are to be used instead.
 
 
 ## **Linux - Version Check**
