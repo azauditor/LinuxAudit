@@ -19,6 +19,7 @@ cp /etc/group group.txt;
 cp /etc/pam.d/password-auth-ac password-auth-ac.txt;
 cat /etc/sudoers > Sudo.txt;
 ls -al /etc/sudoers.d/ > sudoers.d.txt;
+cat /etc/sudoers.d/* >> sudoers.d.txt;
 passwd --status --all > PasswordSetting.txt;
 cat /etc/login.defs > login.defs.txt;
 cat /etc/security/pwquality.conf > Pwquality.txt;
