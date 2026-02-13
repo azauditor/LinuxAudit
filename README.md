@@ -7,25 +7,27 @@ The following commands are used to extract information out of a Linux Operating 
 This command block can be copy-pasted into a terminal to execute all commands listed in this repository. When executing this block, please work in an empty directory that is designated to contain audit files. This folder can be zipped and sent for an easier workflow.
 
 ``` Bash
+AUDITDIR="audit-$(hostname)-$(date +%d-%m-%Y)";
+mkdir "$AUDITDIR";
+cd "$AUDITDIR";
 hostnamectl > sysinfo1.txt;
 uname -a > sysinfo2.txt;
 lsb_release -a > sysinfo3.txt;
 cat /etc/*-release > sysinfo4.txt;
 cp /etc/ssh/sshd_config sshd.config.txt;
 sudo lslogins -c --time-format iso -o USER,UID,GROUP,GID,PWD-CHANGE,PWD-METHOD,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,LAST-LOGIN,SHELL > LoginSetting.txt;
-getent passwd > accounts1.txt;
-cp /etc/passwd accounts2.txt;
-getent group > group1.txt;
-cp /etc/group group2.txt;
+cp /etc/passwd passwd.txt;
+cp /etc/group group.txt;
 cp /etc/pam.d/password-auth-ac password-auth-ac.txt;
 sudo cat /etc/sudoers > Sudo.txt;
-ls -al /etc/sudoers.d/ >> sudoers.d.txt;
+ls -al /etc/sudoers.d/ > sudoers.d.txt;
 sudo passwd --status --all > PasswordSetting1.txt;
 sudo passwd -S -a > PasswordSetting2.txt;
 sudo cat /etc/login.defs > login.defs.txt;
 sudo cat /etc/security/pwquality.conf > Pwquality.txt;
 sudo cat /etc/shells > LoginShells.txt;
-for u in `cat /etc/passwd | cut -d: -f1 | sort`; do passwd -S $u >> PasswordSetting3.txt; done;
+cd ..;
+zip -r AZAudit.zip "$AUDITDIR"
 ```
 
 
