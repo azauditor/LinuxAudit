@@ -2,7 +2,7 @@
 
 The following commands are used to extract information out of a Linux Operating System.  **While these commands should work with most variants of the LINUX** this code has been verified to work with the Debian distribution.  If you are running a different variant please inform contact with which variant and version so that the command line code can be verified with your particular version.
 
-## Bulk Execution
+## Bulk Execution (NEW as of 02/2026)
 
 The `AZAudit.sh` bash script can be used to execute most of the commands listed below. If you are using an older version of Linux then this script may encounter issues, and the following commands in this README are to be used instead.
 
