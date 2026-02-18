@@ -4,7 +4,7 @@ The following commands are used to extract information out of a Linux Operating 
 
 ## Bulk Execution (NEW as of 02/2026)
 
-The `AZAudit.sh` bash script can be used to execute most of the commands listed below. If you are using an older version of Linux then this script may encounter issues, and the following commands in this README are to be used instead.
+The `AZAudit.sh` bash script can be used to execute all of the necessary commands listed below. If you are using an older version of Linux then this script may encounter issues, and the following commands in this README are to be used instead.
 
 
 ## **Linux - Version Check**
