@@ -123,7 +123,15 @@ If you are running **UNIX** use the following command. **Note**: You **MUST** ru
 ``` Bash
 passwd -s -a > PasswordSetting.txt
 ```
+## Account Lockout Settings
 
+These commands fetch configuration files for Linux services that enforce acocunt lockout after a series of invalid login attempts
+```Bash
+cat /etc/security/faillock.conf > sysauth1.txt;
+```
+```Bash
+cat /etc/pam.d/system-auth > sysauth2.txt;
+```
 ## Password length and complexity:
 
 ``` Bash
