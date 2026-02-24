@@ -123,7 +123,7 @@ If you are running **UNIX** use the following command. **Note**: You **MUST** ru
 ``` Bash
 passwd -s -a > PasswordSetting.txt
 ```
-## Account Lockout Settings
+## Account Lockout Settings (NEW as of 02/2026)
 
 These commands fetch configuration files for Linux services that enforce acocunt lockout after a series of invalid login attempts
 ```Bash
