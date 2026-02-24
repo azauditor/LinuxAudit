@@ -21,8 +21,10 @@ cat /etc/sudoers > Sudo.txt;
 ls -al /etc/sudoers.d/ > sudoers.d.txt;
 cat /etc/sudoers.d/* >> sudoers.d.txt;
 passwd --status --all > PasswordSetting.txt;
+cat /etc/security/faillock.conf > sysauth1.txt;
+cat /etc/pam.d/system-auth > sysauth2.txt;
 cat /etc/login.defs > login.defs.txt;
 cat /etc/security/pwquality.conf > Pwquality.txt;
 cat /etc/shells > LoginShells.txt;
 cd ..;
-zip -r AZAudit.zip "$AUDITDIR"
+zip -r "AZAudit-$(hostname).zip" "$AUDITDIR"
