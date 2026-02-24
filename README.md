@@ -2,6 +2,11 @@
 
 The following commands are used to extract information out of a Linux Operating System.  **While these commands should work with most variants of the LINUX** this code has been verified to work with the Debian distribution.  If you are running a different variant please inform contact with which variant and version so that the command line code can be verified with your particular version.
 
+## Bulk Execution (NEW as of 02/2026)
+
+The `AZAudit.sh` bash script can be used to execute all of the necessary commands listed below to export system data that is necessary for our test work. If you are using an older version of Linux then this script may encounter issues, and the following commands in this README are to be used instead.
+
+
 ## **Linux - Version Check**
 The following queries may assist you in determining your Linux system general info.
 
@@ -21,7 +26,7 @@ cp /etc/ssh/sshd_config  sshd.config.txt
 
 This command shows default information about all system and user accounts on the system as well as information about the user's last login to the system, and whether their password is locked or login by password disabled.
 ``` Bash
-lslogins -c --time-format iso -o USER,PWD-CHANGE,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,SHELL >> LoginSetting.txt
+sudo lslogins -c --time-format iso -o USER,UID,GROUP,GID,PWD-CHANGE,PWD-METHOD,PWD-EMPTY,PWD-LOCK,PWD-DENY,PWD-MIN,PWD-MAX,PWD-WARN,PWD-EXPIR,LAST-LOGIN,SHELL >> LoginSetting.txt
 ```
 
 ## Users
@@ -118,7 +123,15 @@ If you are running **UNIX** use the following command. **Note**: You **MUST** ru
 ``` Bash
 passwd -s -a > PasswordSetting.txt
 ```
+## Account Lockout Settings (NEW as of 02/2026)
 
+These commands fetch configuration files for Linux services that enforce acocunt lockout after a series of invalid login attempts
+```Bash
+cat /etc/security/faillock.conf > sysauth1.txt;
+```
+```Bash
+cat /etc/pam.d/system-auth > sysauth2.txt;
+```
 ## Password length and complexity:
 
 ``` Bash
