@@ -20,7 +20,8 @@ cp /etc/pam.d/password-auth-ac password-auth-ac.txt;
 cat /etc/sudoers > Sudo.txt;
 ls -al /etc/sudoers.d/ > sudoers.d.txt;
 cat /etc/sudoers.d/* >> sudoers.d.txt;
-passwd --status --all > PasswordSetting.txt;
+passwd --status --all > PasswordSetting1.txt;
+for u in $(cat /etc/passwd | cut -d: -f1 | sort); do passwd -S $u >> PasswordSetting2.txt; done
 cat /etc/security/faillock.conf > sysauth1.txt;
 cat /etc/pam.d/system-auth > sysauth2.txt;
 cat /etc/login.defs > login.defs.txt;
