@@ -34,19 +34,19 @@ sudo lslogins -c --time-format iso -o USER,UID,GROUP,GID,PWD-CHANGE,PWD-METHOD,P
 This command will find all accounts including network accounts.
 
 ``` Bash
- getent passwd > Accounts.txt
+ getent passwd > passwd.txt
 ```
 
 If you are running **Red Hat Enterprise Linux** use the following command.
 
 ``` Bash
- cp /etc/passwd accounts.txt
+ cp /etc/passwd passwd.txt
 ```
 
 If you are running **UNIX** use the following command.
 
 ``` Bash
- cat /etc/passwd > accounts.txt
+ cat /etc/passwd > passwd.txt
 ```
 
 ## Groups
